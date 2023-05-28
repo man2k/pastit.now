@@ -5,9 +5,7 @@ export default function Home() {
       <div className="text-mono mb-0">
         <label className=" font-mono text-4xl font-bold">PASTIT.NOW</label>
       </div>
-      <div className="w-full p-16">
-        <TextField />
-      </div>
+      <TextField />
     </main>
   );
 }
