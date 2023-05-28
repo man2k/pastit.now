@@ -36,11 +36,14 @@ const TextField = () => {
       setContents={content}
       onChange={setContent}
       lang="en"
-      height="auto"
+      height="50vh"
       width="auto"
+      placeholder="PASTIT HERE..."
       plugins={Object.keys(plugins)}
       setOptions={{
         code: "en",
+        mode: "balloon-always",
+        defaultStyle: "background: red",
         buttonList: [
           // Default
           ["undo", "redo"],
@@ -52,7 +55,7 @@ const TextField = () => {
           ["outdent", "indent"],
           ["align", "horizontalRule", "list", "lineHeight"],
           ["table", "link", "image", "video", "audio"],
-          ["imageGallery"],
+          // ["imageGallery"],
           ["fullScreen", "showBlocks", "codeView"],
           ["preview", "print"],
           ["save", "template"],
