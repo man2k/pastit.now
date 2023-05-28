@@ -16,11 +16,12 @@ const TextField = () => {
     e.preventDefault();
     console.log(content);
     axios
-      .post("http://localhost:3000/api/messages", {
+      .post("api/messages", {
         message: content,
       })
       .then(function (response) {
         console.log(response);
+        window.alert("Uploaded");
       })
       .catch(function (error) {
         console.log(error);
