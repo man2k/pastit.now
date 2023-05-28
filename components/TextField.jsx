@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import "suneditor/dist/css/suneditor.min.css"; // Import Sun Editor's CSS File
 import dynamic from "next/dynamic";
 import plugins from "suneditor/src/plugins";
+import axios from "axios";
 
 const SunEditor = dynamic(() => import("suneditor-react"), {
   ssr: false,
@@ -11,9 +12,24 @@ const SunEditor = dynamic(() => import("suneditor-react"), {
 
 const TextField = () => {
   const [content, setContent] = useState("");
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(content);
+    axios
+      .post("http://localhost:3000/api/messages", {
+        message: content,
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    // await prisma.Message.create({
+    //   data: {
+    //     message: content,
+    //   },
+    // });
   };
   return (
     <div className="flex flex-col justify-center items-center w-full p-10">
