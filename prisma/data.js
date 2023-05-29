@@ -1,17 +1,18 @@
-const { Prisma } = require("@prisma/client");
+const shortid = require("shortid");
 
-const messages = [
+const paste = [
   {
-    message: "hi how are you 1",
-  },
-  {
-    message: "hi how are you 2",
-  },
-  {
-    message: "hi how are you 3",
+    id: shortid.generate(),
+    paste: {
+      data: "1st message boi",
+    },
+    timestamp: `${new Date().getTime()}`,
+    author: "Man2k",
+    // reply: false,
+    // replyTo: "",
   },
 ];
 
 module.exports = {
-  messages,
+  paste,
 };

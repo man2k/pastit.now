@@ -1,17 +1,16 @@
 const { PrismaClient } = require("@prisma/client");
-const { messages } = require("./data.js");
+const { paste } = require("./data.js");
 const prisma = new PrismaClient();
 
 const load = async () => {
   try {
-    await prisma.Message.deleteMany();
+    await prisma.Pastes.deleteMany();
     console.log("Deleted records in Message table");
 
-    await prisma.$queryRaw`ALTER TABLE Message AUTO_INCREMENT = 1`;
+    await prisma.$queryRaw`ALTER TABLE Pastes AUTO_INCREMENT = 1`;
     console.log("reset message auto increment to 1");
-
-    await prisma.Message.createMany({
-      data: messages,
+    await prisma.Pastes.createMany({
+      data: paste,
     });
     console.log("Added product data");
   } catch (e) {

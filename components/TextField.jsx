@@ -5,6 +5,9 @@ import "suneditor/dist/css/suneditor.min.css"; // Import Sun Editor's CSS File
 import dynamic from "next/dynamic";
 import plugins from "suneditor/src/plugins";
 import axios from "axios";
+import CryptoJS from "crypto-js";
+import shortid from "shortid";
+import { parse, stringify } from "flatted";
 
 const SunEditor = dynamic(() => import("suneditor-react"), {
   ssr: false,
@@ -12,12 +15,24 @@ const SunEditor = dynamic(() => import("suneditor-react"), {
 
 const TextField = () => {
   const [content, setContent] = useState("");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(content);
+    // console.log(content);
+    const id = shortid.generate();
+    const encMsg = stringify(CryptoJS.AES.encrypt(content, id));
+    // const encMsg2 = parse(encMsg);
+    // const decMsg = CryptoJS.AES.decrypt(encMsg2, id);
+    console.log(parse(encMsg).toString());
+    // console.log(decMsg.toString(CryptoJS.enc.Utf8));
     axios
-      .post("api/messages", {
-        message: content,
+      .post("api/pastes", {
+        id: id,
+        paste: stringify(encMsg),
+        timestamp: `${new Date().getTime()}`,
+        author: "anon",
+        // reply: false,
+        // replyTo: "",
       })
       .then(function (response) {
         console.log(response);
@@ -26,11 +41,6 @@ const TextField = () => {
       .catch(function (error) {
         console.log(error);
       });
-    // await prisma.Message.create({
-    //   data: {
-    //     message: content,
-    //   },
-    // });
   };
   return (
     <div className="flex flex-col justify-center items-center w-full p-10">
@@ -39,7 +49,7 @@ const TextField = () => {
           defaultValue={content}
           setContents={content}
           onChange={(e) => {
-            // console.log(e);
+            console.log(e);
             setContent(e);
           }}
           lang="en"
