@@ -16,7 +16,7 @@ async function handler(req, res) {
         },
       });
       // console.log(data);
-      return NextResponse.status(200).json({ paste: data.paste });
+      return NextResponse.json({ paste: data.paste });
     } catch (err) {
       console.error(err);
       return NextResponse.json({ msg: "Something went wrong" });

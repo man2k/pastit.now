@@ -1,56 +1,61 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState } from "react";
 import "suneditor/dist/css/suneditor.min.css"; // Import Sun Editor's CSS File
 import dynamic from "next/dynamic";
 import plugins from "suneditor/src/plugins";
 import axios from "axios";
 import CryptoJS from "crypto-js";
 import shortid from "shortid";
-import { parse, stringify } from "flatted";
+import { stringify } from "flatted";
 import { useRouter } from "next/navigation";
 
 const SunEditor = dynamic(() => import("suneditor-react"), {
   ssr: false,
 });
 
-const TextField = ({ gotContent }) => {
+const TextField = ({ gotContent, pasteID }) => {
   const [content, setContent] = useState("");
   const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const id = shortid.generate();
+    // console.log(id);
     const encMsg = stringify(CryptoJS.AES.encrypt(content, id));
+    // console.log(encMsg);
+    // const decMsg = CryptoJS.AES.decrypt(parse(gotContent), pasteID);
+    // console.log(decMsg);
     // const encMsg2 = parse(encMsg);
     // const decMsg = CryptoJS.AES.decrypt(encMsg2, id);
-    console.log(parse(encMsg).toString());
+    // console.log(decMsg);
+    // console.log(parse(encMsg).toString());
     // console.log(decMsg.toString(CryptoJS.enc.Utf8));
     axios
       .post("api/pastes", {
         id: id,
-        paste: stringify(encMsg),
+        paste: encMsg,
         timestamp: `${new Date().getTime()}`,
         author: "anon",
       })
       .then(function (response) {
-        console.log(response);
-        window.alert("Uploaded");
+        // console.log(response);
+        // window.alert("Uploaded");
+        router.push(`/${id}`);
       })
       .catch(function (error) {
         console.log(error);
       });
-    router.push(`/${id}`);
   };
   return (
     <div className="flex flex-col justify-center items-center w-full p-10">
-      {content === "" ? (
+      {!gotContent ? (
         <div className="w-full">
           <SunEditor
             defaultValue={content}
             setContents={content}
             onChange={(e) => {
-              console.log(e);
+              // console.log(e);
               setContent(e);
             }}
             lang="en"
