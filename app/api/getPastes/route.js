@@ -10,11 +10,13 @@ async function handler(req, res) {
   if (req.method === "POST") {
     try {
       //   const data = await prisma.product.findMany({});
-      await prisma.Pastes.createMany({
-        data: body,
+      const data = await prisma.Pastes.findFirst({
+        where: {
+          id: body.id,
+        },
       });
-
-      return NextResponse.status(200).json({ success: true });
+      // console.log(data);
+      return NextResponse.status(200).json({ paste: data.paste });
     } catch (err) {
       console.error(err);
       return NextResponse.json({ msg: "Something went wrong" });
@@ -23,4 +25,4 @@ async function handler(req, res) {
     return NextResponse.json({ msg: "Method not allowed" });
   }
 }
-export { handler as GET, handler as POST };
+export { handler as POST };
