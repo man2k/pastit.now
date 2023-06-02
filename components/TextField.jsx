@@ -220,7 +220,7 @@ const TextField = ({ gotContent, pasteID, submit }) => {
             }}
             disable
             lang="en"
-            height="50vh"
+            height="70vh"
             width="auto"
             setDefaultStyle="font-family: Georgia, serif; font-size:18px; background: black; color: white;"
           />
