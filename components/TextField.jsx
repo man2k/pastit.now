@@ -204,7 +204,7 @@ const TextField = ({ gotContent, pasteID, submit }) => {
               ],
               plugins: plugins,
             }}
-            setDefaultStyle="font-family: monospace; font-size:16px; background: black; color: white;"
+            setDefaultStyle="font-family: monospace; font-size:16px; background: black; color: white; border-radius: 6px;"
             setAllPlugins={true}
           />
         </div>
@@ -232,7 +232,7 @@ const TextField = ({ gotContent, pasteID, submit }) => {
       ) : (
         <div>
           <button
-            className="border-1 border-black bg-red-300 rounded-lg w-24 mt-3"
+            className="border-1 border-black bg-indigo-400 hover:bg-indigo-600 rounded-lg w-24 mt-3 transition ease-in-out font-mono hover:font-bold"
             onClick={handleSubmit}
           >
             Submit
