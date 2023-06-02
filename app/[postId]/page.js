@@ -5,6 +5,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import CryptoJS from "crypto-js";
 import { parse } from "flatted";
+import Logo from "@/components/Logo";
 
 export default function Home() {
   const [gotContent, setGotContent] = useState("");
@@ -29,11 +30,9 @@ export default function Home() {
   }, [pathname]);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-evenly bg-green-300">
-      <div className="text-mono mb-0">
-        <label className=" font-mono text-4xl font-bold">PASTIT.NOW</label>
-      </div>
-      <TextField gotContent={gotContent} pasteID={pathname} />
+    <main className="flex min-h-screen flex-col items-center justify-evenly bg-gradient-to-br from-green-500 to-green-700 hover:bg-gradient-to-bl">
+      <Logo />
+      <TextField gotContent={gotContent} pasteID={pathname} submit={false} />
     </main>
   );
 }

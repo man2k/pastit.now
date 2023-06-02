@@ -14,12 +14,15 @@ const SunEditor = dynamic(() => import("suneditor-react"), {
   ssr: false,
 });
 
-const TextField = ({ gotContent, pasteID }) => {
+const TextField = ({ gotContent, pasteID, submit }) => {
   const [content, setContent] = useState("");
   const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (content === "") {
+      return;
+    }
     const id = shortid.generate();
     // console.log(id);
     const encMsg = stringify(CryptoJS.AES.encrypt(content, id));
@@ -49,10 +52,10 @@ const TextField = ({ gotContent, pasteID }) => {
   };
   return (
     <div className="flex flex-col justify-center items-center w-full p-10">
-      {!gotContent ? (
+      {submit != false ? (
         <div className="w-full">
           <SunEditor
-            defaultValue={content}
+            defaultValue=""
             setContents={content}
             onChange={(e) => {
               // console.log(e);
@@ -66,7 +69,6 @@ const TextField = ({ gotContent, pasteID }) => {
             setOptions={{
               code: "en",
               mode: "balloon-always",
-              // defaultStyle: "background: red",
               buttonList: [
                 // Default
                 ["undo", "redo"],
@@ -202,15 +204,16 @@ const TextField = ({ gotContent, pasteID }) => {
               ],
               plugins: plugins,
             }}
-            setDefaultStyle="font-family: cursive; font-size:16px;"
+            setDefaultStyle="font-family: monospace; font-size:16px; background: black; color: white;"
             setAllPlugins={true}
           />
         </div>
       ) : (
         <div className="w-full">
           <SunEditor
-            defaultValue={gotContent}
+            defaultValue=""
             setContents={gotContent}
+            placeholder="Loading..."
             setOptions={{
               code: "en",
               mode: "balloon-always",
@@ -219,19 +222,23 @@ const TextField = ({ gotContent, pasteID }) => {
             lang="en"
             height="50vh"
             width="auto"
-            setDefaultStyle="font-family: cursive; font-size:16px;"
+            setDefaultStyle="font-family: Georgia, serif; font-size:18px; background: black; color: white;"
           />
         </div>
       )}
 
-      <div>
-        <button
-          className="border-1 border-black bg-red-300 rounded-lg w-24 mt-3"
-          onClick={handleSubmit}
-        >
-          Submit
-        </button>
-      </div>
+      {submit === false ? (
+        <></>
+      ) : (
+        <div>
+          <button
+            className="border-1 border-black bg-red-300 rounded-lg w-24 mt-3"
+            onClick={handleSubmit}
+          >
+            Submit
+          </button>
+        </div>
+      )}
     </div>
   );
 };

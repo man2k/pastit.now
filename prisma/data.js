@@ -7,7 +7,7 @@ const paste = [
       data: "1st message boi",
     },
     timestamp: `${new Date().getTime()}`,
-    author: "Man2k",
+    author: "anon",
     // reply: false,
     // replyTo: "",
   },
