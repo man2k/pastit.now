@@ -1,8 +1,6 @@
-import Logo from "@/components/Logo";
 const page = () => {
   return (
     <main className="flex min-h-screen flex-col items-center justify-evenly bg-gradient-to-br from-green-500 to-green-700 hover:bg-gradient-to-bl">
-      {/* <Logo /> */}
       <section className="bg-inherit py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">

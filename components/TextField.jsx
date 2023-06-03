@@ -18,8 +18,8 @@ const TextField = ({ gotContent, pasteID, submit }) => {
   const [content, setContent] = useState("");
   const router = useRouter();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
+    // e.preventDefault();
     if (content === "") {
       return;
     }
@@ -41,7 +41,7 @@ const TextField = ({ gotContent, pasteID, submit }) => {
         timestamp: `${new Date().getTime()}`,
         author: "anon",
       })
-      .then(function (response) {
+      .then(function () {
         // console.log(response);
         // window.alert("Uploaded");
         router.push(`/${id}`);
