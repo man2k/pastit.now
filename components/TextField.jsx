@@ -90,7 +90,7 @@ const TextField = ({ gotContent, pasteID, submit }) => {
                 // ["imageGallery"],
                 ["fullScreen", "showBlocks", "codeView"],
                 ["preview", "print"],
-                ["save", "template"],
+                ["template"],
                 // ["-left", "#fix", "dir_ltr", "dir_rtl"],
                 // (min-width:992px)
                 [
@@ -126,7 +126,6 @@ const TextField = ({ gotContent, pasteID, submit }) => {
                       "codeView",
                       "preview",
                       "print",
-                      "save",
                       "template",
                     ],
                     [
@@ -196,7 +195,6 @@ const TextField = ({ gotContent, pasteID, submit }) => {
                       "codeView",
                       "preview",
                       "print",
-                      "save",
                       "template",
                     ],
                   ],
@@ -204,7 +202,7 @@ const TextField = ({ gotContent, pasteID, submit }) => {
               ],
               plugins: plugins,
             }}
-            setDefaultStyle="font-family: monospace; font-size:16px; background: black; color: white; border-radius: 6px;"
+            setDefaultStyle="font-family: monospace; font-size:16px; background: #1f2937; color: white; border-radius: 6px;"
             setAllPlugins={true}
           />
         </div>
@@ -222,7 +220,7 @@ const TextField = ({ gotContent, pasteID, submit }) => {
             lang="en"
             height="70vh"
             width="auto"
-            setDefaultStyle="font-family: Georgia, serif; font-size:18px; background: black; color: white;"
+            setDefaultStyle="font-family: Georgia, serif; font-size:18px; background: #292524; color: white;"
           />
         </div>
       )}
@@ -235,7 +233,7 @@ const TextField = ({ gotContent, pasteID, submit }) => {
             className="border-1 border-black bg-indigo-400 hover:bg-indigo-600 rounded-lg w-24 mt-3 transition ease-in-out font-mono hover:font-bold"
             onClick={handleSubmit}
           >
-            Submit
+            Paste
           </button>
         </div>
       )}

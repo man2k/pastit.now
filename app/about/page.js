@@ -1,6 +1,6 @@
 const page = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-evenly bg-gradient-to-br from-green-500 to-green-700 hover:bg-gradient-to-bl">
+    <main className="flex min-h-screen flex-col items-center justify-evenly bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-gray-900 via-purple-900 to-violet-600">
       <section className="bg-inherit py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
@@ -13,7 +13,7 @@ const page = () => {
           </div>
           <div className="mt-16">
             <div className="flex flex-row gap-8 justify-around px-12">
-              <div className="bg-green-400 overflow-hidden shadow rounded-lg">
+              <div className="bg-violet-400 overflow-hidden shadow rounded-lg">
                 <div className="p-6">
                   <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
                     <svg
@@ -39,7 +39,7 @@ const page = () => {
                   </p>
                 </div>
               </div>
-              <div className="bg-green-400 overflow-hidden shadow rounded-lg">
+              <div className="bg-violet-400 overflow-hidden shadow rounded-lg">
                 <div className="p-6">
                   <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
                     <svg

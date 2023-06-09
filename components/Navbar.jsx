@@ -11,7 +11,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <nav className="bg-gradient-to-b from-green-500 to-green-600">
+      <nav className="bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-gray-900 via-purple-900 to-violet-600 border-b-2 border-black border-dashed">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex-shrink-0">
@@ -29,13 +29,13 @@ const Navbar = () => {
               <div className="hidden sm:block sm:ml-6 ">
                 <Link
                   href="/"
-                  className="text-black font-bold hover:bg-green-800 px-3 py-2 rounded-md text-sm bg-green-600 mr-2"
+                  className="text-black font-bold hover:bg-violet-700 px-3 py-2 rounded-md text-sm bg-violet-600 mr-2"
                 >
                   <span className="font-bold text-white ">+ </span>PASTE
                 </Link>
                 <Link
                   href="/about"
-                  className="text-gray-900 hover:bg-green-800 px-3 py-2 rounded-md text-sm font-medium"
+                  className="text-gray-900 hover:bg-violet-800 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   About
                 </Link>

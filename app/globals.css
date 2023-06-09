@@ -25,3 +25,21 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.se-btn-tray {
+  background-color: #3730a3;
+  color: black;
+  font-weight: bold;
+}
+.se-list-inner,
+.se-submenu.se-list-layer.se-list-font-family,
+.se-submenu.se-list-layer.se-list-font-size,
+.se-submenu.se-list-layer.se-list-format {
+  background-color: #3730a3;
+  color: black;
+}
+
+[class^="se-submenu.se-list-layer.se-list"] {
+  background-color: #3730a3;
+  color: black;
+}
