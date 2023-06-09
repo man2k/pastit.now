@@ -11,7 +11,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <nav className="bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-gray-900 via-purple-900 to-violet-600 border-b-2 border-black border-dashed">
+      <nav className="bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-gray-900 via-purple-900 to-violet-600 border-b-2 border-purple-900 shadow-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex-shrink-0">

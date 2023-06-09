@@ -84,7 +84,6 @@ const TextField = ({ gotContent, pasteID, submit }) => {
                 ],
                 ["fontColor", "hiliteColor", "textStyle"],
                 ["removeFormat"],
-                ["outdent", "indent"],
                 ["align", "horizontalRule", "list", "lineHeight"],
                 ["table", "link", "image", "video", "audio"],
                 // ["imageGallery"],
@@ -115,7 +114,6 @@ const TextField = ({ gotContent, pasteID, submit }) => {
                       "textStyle",
                     ],
                     ["removeFormat"],
-                    ["outdent", "indent"],
                     ["align", "horizontalRule", "list", "lineHeight"],
                     ["-right", "dir"],
                     [
@@ -169,8 +167,6 @@ const TextField = ({ gotContent, pasteID, submit }) => {
                     ],
                     [
                       ":e-More Line-default.more_horizontal",
-                      "outdent",
-                      "indent",
                       "align",
                       "horizontalRule",
                       "list",
@@ -220,7 +216,7 @@ const TextField = ({ gotContent, pasteID, submit }) => {
             lang="en"
             height="70vh"
             width="auto"
-            setDefaultStyle="font-family: Georgia, serif; font-size:18px; background: #292524; color: white;"
+            setDefaultStyle="font-family: Georgia, serif; font-size:18px; background: white; color: white;"
           />
         </div>
       )}
@@ -230,7 +226,7 @@ const TextField = ({ gotContent, pasteID, submit }) => {
       ) : (
         <div>
           <button
-            className="border-1 border-black bg-indigo-400 hover:bg-indigo-600 rounded-lg w-24 mt-3 transition ease-in-out font-mono hover:font-bold"
+            className="border-1 border-black bg-indigo-400 hover:bg-indigo-600 rounded-lg w-24 mt-3 p-2 transition ease-in-out hover:font-bold font-mono antialiased"
             onClick={handleSubmit}
           >
             Paste

@@ -26,20 +26,35 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-.se-btn-tray {
-  background-color: #3730a3;
+.se-btn-tray,
+.se-toolbar.sun-editor-common.se-toolbar-balloon {
+  background-color: #6b21a8;
   color: black;
   font-weight: bold;
+  border-radius: 10px;
 }
+
+.se-arrow-down:after,
+.se-arrow-up:after {
+  color: #6b21a8;
+  filter: invert(40%) sepia(50%) saturate(200%) hue-rotate(264deg)
+    brightness(100%) contrast(100%);
+}
+
 .se-list-inner,
 .se-submenu.se-list-layer.se-list-font-family,
 .se-submenu.se-list-layer.se-list-font-size,
 .se-submenu.se-list-layer.se-list-format {
-  background-color: #3730a3;
+  background-color: #6b21a8;
   color: black;
 }
 
-[class^="se-submenu.se-list-layer.se-list"] {
-  background-color: #3730a3;
-  color: black;
+.se-wrapper {
+  background-color: #6b21a8;
+  border-radius: 10px;
+}
+
+.sun-editor {
+  background-color: #6b21a8;
+  border-radius: 10px;
 }
