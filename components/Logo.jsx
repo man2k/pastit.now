@@ -7,7 +7,7 @@ const Logo = () => {
         <Link href="/">
           <Image
             src="/pastit-transparent.png"
-            // loading="lazy"
+            loading="lazy"
             width={200}
             height={200}
             alt="Pastit.Now"

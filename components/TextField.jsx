@@ -87,9 +87,8 @@ const TextField = ({ gotContent, pasteID, submit }) => {
                 ["align", "horizontalRule", "list", "lineHeight"],
                 ["table", "link", "image", "video", "audio"],
                 // ["imageGallery"],
-                ["fullScreen", "showBlocks", "codeView"],
+                ["showBlocks", "codeView"],
                 ["preview", "print"],
-                ["template"],
                 // ["-left", "#fix", "dir_ltr", "dir_rtl"],
                 // (min-width:992px)
                 [
@@ -119,12 +118,10 @@ const TextField = ({ gotContent, pasteID, submit }) => {
                     [
                       "-right",
                       ":i-More Misc-default.more_vertical",
-                      "fullScreen",
                       "showBlocks",
                       "codeView",
                       "preview",
                       "print",
-                      "template",
                     ],
                     [
                       "-right",
@@ -186,12 +183,10 @@ const TextField = ({ gotContent, pasteID, submit }) => {
                     [
                       "-right",
                       ":i-More Misc-default.more_vertical",
-                      "fullScreen",
                       "showBlocks",
                       "codeView",
                       "preview",
                       "print",
-                      "template",
                     ],
                   ],
                 ],
