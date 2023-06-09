@@ -30,8 +30,8 @@ export default function Home() {
   }, [pathname]);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-evenly bg-gradient-to-br from-green-500 to-green-700 hover:bg-gradient-to-bl">
-      <Logo />
+    <main className="flex min-h-screen flex-col items-center justify-evenly bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-gray-900 via-purple-900 to-violet-600">
+      {/* <Logo /> */}
       <TextField gotContent={gotContent} pasteID={pathname} submit={false} />
     </main>
   );
