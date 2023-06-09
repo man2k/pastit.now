@@ -18,7 +18,7 @@ const Navbar = () => {
               <Link href="/" className="text-white font-bold text-xl">
                 <Image
                   src="/pastit-transparent.png"
-                  loading="lazy"
+                  // loading="lazy"
                   width={100}
                   height={100}
                   alt="Pastit.Now"
