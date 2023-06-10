@@ -1,14 +1,27 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+  const [eve, setEve] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
-  const menuToggle = () => {
-    setMenuOpen(!menuOpen);
+  const path = usePathname();
+
+  const menuToggle = (i) => {
+    i === undefined ? setMenuOpen(true) : setMenuOpen(i);
   };
+
+  useEffect(() => {
+    menuToggle(false);
+
+    // return () => {
+    //   menuToggle(false);
+    // };
+  }, [path]);
+
   return (
     <>
       <nav className="bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-gray-900 via-purple-900 to-violet-600 border-b-2 border-purple-900 shadow-xl">
@@ -29,9 +42,9 @@ const Navbar = () => {
               <div className="hidden sm:block sm:ml-6 ">
                 <Link
                   href="/"
-                  className="text-black font-bold hover:bg-violet-700 px-3 py-2 rounded-md text-sm bg-violet-600 mr-2"
+                  className="text-black font-bold hover:bg-violet-900 px-3 py-2 rounded-md text-sm bg-violet-600 mr-2"
                 >
-                  <span className="font-bold text-white ">+ </span>PASTE
+                  <span className="font-bold text-white">+ </span>PASTE
                 </Link>
                 <Link
                   href="/about"
@@ -41,7 +54,10 @@ const Navbar = () => {
                 </Link>
               </div>
             </div>
-            <div className="md:hidden">
+
+            {/* Mobile View */}
+
+            <div className="sm:hidden">
               <div>
                 <svg
                   xmlns="<http://www.w3.org/2000/svg>"
@@ -50,7 +66,9 @@ const Navbar = () => {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  onClick={menuToggle}
+                  onClick={() => {
+                    menuToggle(!menuOpen);
+                  }}
                 >
                   <path
                     stroke-linecap="round"
@@ -60,28 +78,43 @@ const Navbar = () => {
                   />
                 </svg>
               </div>
-              {menuOpen ? (
-                <div
-                  className="mt-36 w-full md:flex md:items-center md:w-auto"
-                  id="menu"
+              {menuOpen === true ? (
+                // <div
+                //   className="mt-36 w-full md:flex md:items-center md:w-auto"
+                //   id="menu"
+                // >
+                <ul
+                  className="bg-violet-800 rounded-md text-base text-gray-800 pt-0 md:flex mt-32"
+                  // onTouchEnd={() => {
+                  //   setMenuOpen(false);
+                  // }}
                 >
-                  <ul className="text-base text-gray-800 pt-4 md:flex md:justify-between md:pt-0">
-                    <li className="bg-green-500 rounded-md w-20 px-3">
-                      <Link className="py-2 block" href="/">
-                        <span className="font-bold text-white text-xs mr-1">
-                          +
-                        </span>
-                        <span className="font-bold text-xs">PASTE</span>
-                      </Link>
-                    </li>
-                    <li className="bg-green-500 rounded-md w-20 pl-6 mt-1 hover:font-extrabold hover:bg-slate-600">
-                      <Link className="md:p-4 py-2 block" href="/about">
-                        <span className="font-bold text-sm">About</span>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
+                  <li
+                    className="rounded-md w-20 px-3 bg-purple-800"
+                    onClick={() => {
+                      menuToggle(false);
+                    }}
+                  >
+                    <Link className="py-2 block" href="/">
+                      <span className="font-bold text-white text-xs mr-1">
+                        +
+                      </span>
+                      <span className="font-bold text-xs">PASTE</span>
+                    </Link>
+                  </li>
+                  <li
+                    className="rounded-md w-20 px-3 mt-1"
+                    onClick={() => {
+                      menuToggle(false);
+                    }}
+                  >
+                    <Link className="py-2 pl-2 block" href="/about">
+                      <span className="font-bold text-xs">About</span>
+                    </Link>
+                  </li>
+                </ul>
               ) : (
+                // </div>
                 <></>
               )}
             </div>

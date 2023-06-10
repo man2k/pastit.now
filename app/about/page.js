@@ -1,7 +1,7 @@
 const page = () => {
   return (
     <main className="flex min-h-screen flex-col items-center justify-evenly bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-gray-900 via-purple-900 to-violet-600">
-      <section className="bg-inherit py-16">
+      <div className="bg-inherit py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-extrabold text-gray-900">
@@ -68,7 +68,7 @@ const page = () => {
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </main>
   );
 };
