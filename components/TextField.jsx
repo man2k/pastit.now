@@ -62,7 +62,7 @@ const TextField = ({ gotContent, pasteID, submit }) => {
               setContent(e);
             }}
             lang="en"
-            height="50vh"
+            height="auto"
             width="auto"
             placeholder="PASTIT HERE..."
             plugins={Object.keys(plugins)}
@@ -193,7 +193,7 @@ const TextField = ({ gotContent, pasteID, submit }) => {
               ],
               plugins: plugins,
             }}
-            setDefaultStyle="font-family: monospace; font-size:16px; background: #1f2937; color: white; border-radius: 6px;"
+            setDefaultStyle="font-family: monospace; font-size:16px; background: #1f2937; color: white; border-radius: 6px; min-height: 50vh"
             setAllPlugins={true}
           />
         </div>

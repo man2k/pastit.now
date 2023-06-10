@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 const Logo = () => {
   return (
-    <div className="text-mono mb-0">
+    <div className="text-mono mb-0 mt-4">
       <label className=" font-mono text-4xl font-bold">
         <Link href="/">
           <Image
