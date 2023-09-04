@@ -1,13 +1,18 @@
+# Screenshots
+
+![alt text](https://i.ibb.co/ss2HzPy/c.png)
+![alt text](https://i.ibb.co/YBsL8Df/d.png)
+
 ## Getting Started
 
 First, run the development server:
 
 ```bash
-npm run dev
+npm i && npm run dev
 # or
-yarn dev
+yarn && yarn dev
 # or
-pnpm dev
+pnpm i && pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
